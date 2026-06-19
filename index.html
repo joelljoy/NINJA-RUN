@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Endless Ninja Run</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&family=Share+Tech+Mono&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <!-- Start Screen -->
+    <div id="start-screen" class="screen active">
+      <div class="screen-bg"></div>
+      <div class="screen-content">
+        <div class="title-block">
+          <div class="title-sub">◈ ENDLESS ◈</div>
+          <h1 class="title-main">NINJA RUN</h1>
+          <div class="title-tagline">Jump. Dodge. Survive.</div>
+        </div>
+        <div class="btn-group">
+          <button class="btn btn-primary" id="btn-play">
+            <span class="btn-icon">▶</span> PLAY
+          </button>
+          <button class="btn btn-secondary" id="btn-leaderboard-start">
+            <span class="btn-icon">◈</span> LEADERBOARD
+          </button>
+        </div>
+        <div class="controls-hint"><span>SPACE / TAP</span> to jump</div>
+      </div>
+    </div>
+
+    <!-- Game Screen -->
+    <div id="game-screen" class="screen">
+      <div id="game-wrapper">
+        <canvas id="gameCanvas"></canvas>
+      </div>
+    </div>
+
+    <!-- Game Over Screen -->
+    <div id="gameover-screen" class="screen">
+      <div class="screen-bg"></div>
+      <div class="screen-content gameover-content">
+        <div class="gameover-title">GAME OVER</div>
+        <div class="gameover-stats">
+          <div class="stat-row">
+            <span class="stat-label">SCORE</span>
+            <span class="stat-value" id="go-score">000000</span>
+          </div>
+          <div class="stat-row">
+            <span class="stat-label">COINS</span>
+            <span class="stat-value gold" id="go-coins">0</span>
+          </div>
+          <div class="stat-row">
+            <span class="stat-label">RANK</span>
+            <span class="stat-value" id="go-rank">#--</span>
+          </div>
+        </div>
+        <div class="name-input-block">
+          <label class="input-label">ENTER YOUR NAME</label>
+          <input
+            type="text"
+            id="player-name"
+            class="name-input"
+            maxlength="12"
+            placeholder="NINJA"
+            autocomplete="off"
+          />
+        </div>
+        <div class="btn-group">
+          <button class="btn btn-primary" id="btn-submit">
+            <span class="btn-icon">◈</span> SUBMIT SCORE
+          </button>
+          <button class="btn btn-secondary" id="btn-play-again">
+            <span class="btn-icon">▶</span> PLAY AGAIN
+          </button>
+          <button class="btn btn-ghost" id="btn-leaderboard-go">
+            LEADERBOARD
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Leaderboard Modal -->
+    <div id="leaderboard-modal" class="modal-overlay">
+      <div class="modal">
+        <div class="modal-title">◈ LEADERBOARD ◈</div>
+        <table class="lb-table">
+          <thead>
+            <tr>
+              <th>RANK</th>
+              <th>NAME</th>
+              <th>SCORE</th>
+              <th>COINS</th>
+            </tr>
+          </thead>
+          <tbody id="lb-body"></tbody>
+        </table>
+        <button class="btn btn-ghost modal-close" id="btn-close-lb">
+          ✕ CLOSE
+        </button>
+      </div>
+    </div>
+
+    <script src="game.js"></script>
+  </body>
+</html>
